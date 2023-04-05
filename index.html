@@ -1,30 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Fink</title>
+	<title>Fink - 👺 </title>
 	<style>
 		body {
-			font-family: Courier, monospace;
-			background-color: #1d1f21;
-			color: #c5c8c6;
+			background-color: #000000;
+			font-family: 'Courier New', monospace;
+			color: #00FF00;
+			font-size: 16px;
+			line-height: 1.5;
+			letter-spacing: 0.05em;
+			margin: 0;
+			padding: 0;
 		}
 		h1 {
 			font-size: 36px;
 			text-align: center;
-			color: #f0c674;
+			margin-top: 50px;
+			margin-bottom: 50px;
+			text-shadow: 0 0 5px #00FF00;
+			animation: rotate 2s linear infinite;
+		}
+		@keyframes rotate {
+			from {
+				transform: rotateY(0deg);
+			}
+			to {
+				transform: rotateY(360deg);
+			}
 		}
 		h2 {
 			font-size: 28px;
 			text-align: center;
 			margin-top: 50px;
-			color: #81a2be;
+			margin-bottom: 50px;
+			text-shadow: 0 0 5px #00FF00;
 		}
 		p {
-			font-size: 20px;
-			line-height: 1.5;
 			margin-top: 30px;
 			margin-bottom: 30px;
-			color: #c5c8c6;
 		}
 		.slide {
 			display: none;
@@ -35,45 +49,67 @@
 		.active-slide {
 			display: block;
 		}
-		button {
-			background-color: #b294bb;
+		.btn-container {
+			display: flex;
+			justify-content: center;
+			margin-top: 50px;
+			margin-bottom: 50px;
+		}
+		.btn {
+			background-color: #00FF00;
 			border: none;
-			color: white;
-			padding: 10px 20px;
+			color: #000000;
+			padding: 20px 40px;
 			text-align: center;
 			text-decoration: none;
 			display: inline-block;
-			font-size: 16px;
-			margin-top: 50px;
+			font-size: 24px;
+			margin-right: 20px;
 			cursor: pointer;
+			box-shadow: 0 0 10px #00FF00;
+		}
+		.btn:hover {
+			background-color: #000000;
+			color: #00FF00;
+			box-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00, 0 0 30px #00FF00;
 		}
 	</style>
 </head>
 <body>
-	<h1>Mi presentación</h1>
+	<h1>Fink</h1>
 
 	<div class="slide active-slide">
-		<h2>¿Quien soy?</h2>
+		<h2>¿Quién soy?</h2>
 		<p>Soy fink, un usuario normal del internet</p>
+		<div class="btn-container">
+			<button class="btn" onclick="nextSlide()">Siguiente</button>
+		</div>
 	</div>
 
 	<div class="slide">
-		<h2>¿Que juego?</h2>
-		<p>Me gusta jugar juegos como Minecraft,Roblox,CS1.6/GO, Valorant y ahora le estoy entrando un toque al LoL</p>
+		<h2>¿Qué juego?</h2>
+		<p>Me gusta jugar juegos como Minecraft, Roblox, CS1.6/GO, Valorant y ahora le estoy entrando un toque al LoL</p>
+		<div class="btn-container">
+			<button class="btn" onclick="previousSlide()">Anterior</button>
+			<button class="btn" onclick="nextSlide()">Siguiente</button>
+		</div>
 	</div>
 
 	<div class="slide">
 		<h2>Mis redes:</h2>
-		<p>Aca te dejo todas mis redes</p>
-		<p>Discord: fink#8356</p>
+		<p>Aquí te dejo todas mis redes</p>
+		<p>Discord
+: fink#8356</p>
 		<p>IG: https://www.instagram.com/fink_ggs/</p>
 		<p>Youtube: https://www.youtube.com/@Fink01 </p>
 		<p>NameMC: https://es.namemc.com/profile/CCS_fink.1</p>
-		
-	</div>
+		</div>
 
-	<button onclick="previousSlide()">Anterior</button>
-	<button onclick="nextSlide()">Siguiente</button>
+                <div class="slide">
+			<h2>Hasta aqui mi presentación</h2>
+			<p>Gracias por Ver</p>
+		</div>
+	</div>
 
 	<script>
 		var slideIndex = 1;
@@ -90,10 +126,8 @@
 		function showSlide(n) {
 			var slides = document.getElementsByClassName("slide");
 			if (n > slides.length) {
-				slideIndex = 1;
-			}
-			if (n < 1) {
-				slideIndex = slides.length;
+				slideIndex = 
+ slides.length;
 			}
 			for (var i = 0; i < slides.length; i++) {
 				slides[i].classList.remove("active-slide");
