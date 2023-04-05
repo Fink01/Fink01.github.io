@@ -1,9 +1,100 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>{{ title }}</title>
+	<title>Fink</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+		}
+		h1 {
+			font-size: 36px;
+			text-align: center;
+		}
+		h2 {
+			font-size: 28px;
+			text-align: center;
+			margin-top: 50px;
+		}
+		p {
+			font-size: 20px;
+			line-height: 1.5;
+			margin-top: 30px;
+			margin-bottom: 30px;
+		}
+		.slide {
+			display: none;
+			text-align: center;
+			padding-top: 100px;
+			padding-bottom: 100px;
+		}
+		.active-slide {
+			display: block;
+		}
+		button {
+			background-color: #008CBA;
+			border: none;
+			color: white;
+			padding: 10px 20px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin-top: 50px;
+			cursor: pointer;
+		}
+	</style>
 </head>
 <body>
-	<img src="{{ cat_image_url }}" alt="Random cat image">
+	<h1>Mi presentación</h1>
+
+	<div class="slide active-slide">
+		<h2>¿Quien soy?</h2>
+		<p>Soy fink, un usuario normal del internet</p>
+	</div>
+
+	<div class="slide">
+		<h2>¿Que juego?</h2>
+		<p>Me gusta jugar juegos como Minecraft,Roblox,CS1.6/GO, Valorantt y ahora le estoy entrando un toque al LoL</p>
+	</div>
+
+	<div class="slide">
+		<h2>Mis redes:</h2>
+		<p>Aca te dejo todas mis redes</p>
+		<p>Discord: fink#8356</p>
+		<p>IG: https://www.instagram.com/fink_ggs/</p>
+		<p>Youtube: https://www.youtube.com/@Fink01 </p>
+		<p>NameMC: https://es.namemc.com/profile/CCS_fink.1</p>
+		
+	</div>
+
+	<button onclick="previousSlide()">Anterior</button>
+	<button onclick="nextSlide()">Siguiente</button>
+
+	<script>
+		var slideIndex = 1;
+		showSlide(slideIndex);
+
+		function nextSlide() {
+			showSlide(slideIndex += 1);
+		}
+
+		function previousSlide() {
+			showSlide(slideIndex -= 1);
+		}
+
+		function showSlide(n) {
+			var slides = document.getElementsByClassName("slide");
+			if (n > slides.length) {
+				slideIndex = 1;
+			}
+			if (n < 1) {
+				slideIndex = slides.length;
+			}
+			for (var i = 0; i < slides.length; i++) {
+				slides[i].classList.remove("active-slide");
+			}
+			slides[slideIndex-1].classList.add("active-slide");
+		}
+	</script>
 </body>
 </html>
